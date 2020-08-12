@@ -21,10 +21,11 @@ public:
     }
 };
 
-template<class ForwardIterator, class T>
-ForwardIterator search(ForwardIterator start, ForwardIterator end, T key) {
+//Template + Iterators + Comparators
+template<class ForwardIterator, class T, class Compare>
+ForwardIterator search(ForwardIterator start, ForwardIterator end, T key, Compare cmp) {
     while (start != end) {
-        if (*start == key) {
+        if (cmp(*start, key)) {
             return start;
         }
 
@@ -37,7 +38,6 @@ ForwardIterator search(ForwardIterator start, ForwardIterator end, T key) {
 class BookCompare {
 public:
     bool operator()(Book A, Book B) {
-        cout << "Inside compare fn" << endl;
         if (A.name == B.name) {
             return true;
         }
@@ -51,16 +51,27 @@ int main() {
     Book b3("Java", 130);
     Book b4(b1);
 
-    list<Book> list;
-    list.push_back(b1);
-    list.push_back(b2);
-    list.push_back(b3);
+    list<Book> listBook;
+    listBook.push_back(b1);
+    listBook.push_back(b2);
+    listBook.push_back(b3);
 
-    Book bookToFind("C++", 110); //new edition
+    Book bookToFind("C", 110); //new edition
 
     BookCompare cmp;
-    if (cmp(b1, bookToFind)) {
-        cout << "True Same Books!" << endl;
+
+    auto it = search(listBook.begin(), listBook.end(), bookToFind, cmp);
+
+    if (it != listBook.end()) {
+        cout << "Book found in the library!" << endl;
+    } else {
+        cout << "Book not Found!" << endl;
     }
+
+    /*if (cmp(b1, bookToFind)) {
+        cout << "True Same Books!" << endl;
+    }*/
+
+
     return 0;
 }
