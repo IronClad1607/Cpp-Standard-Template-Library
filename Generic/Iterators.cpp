@@ -14,6 +14,8 @@ ForwardIterator search(ForwardIterator start, ForwardIterator end, T key) {
 
         start++;
     }
+
+    return end;
 }
 
 int main() {

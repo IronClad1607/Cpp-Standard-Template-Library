@@ -21,8 +21,32 @@ public:
     }
 };
 
+template<class ForwardIterator, class T>
+ForwardIterator search(ForwardIterator start, ForwardIterator end, T key) {
+    while (start != end) {
+        if (*start == key) {
+            return start;
+        }
+
+        start++;
+    }
+
+    return end;
+}
+
+class BookCompare {
+public:
+    bool operator()(Book A, Book B) {
+        cout << "Inside compare fn" << endl;
+        if (A.name == B.name) {
+            return true;
+        }
+        return false;
+    }
+};
+
 int main() {
-    Book b1("C++", 100);
+    Book b1("C++", 100); //old edition
     Book b2("Python", 120);
     Book b3("Java", 130);
     Book b4(b1);
@@ -33,5 +57,10 @@ int main() {
     list.push_back(b3);
 
     Book bookToFind("C++", 110); //new edition
+
+    BookCompare cmp;
+    if (cmp(b1, bookToFind)) {
+        cout << "True Same Books!" << endl;
+    }
     return 0;
 }
