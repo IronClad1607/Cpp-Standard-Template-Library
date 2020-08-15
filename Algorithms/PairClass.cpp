@@ -17,6 +17,14 @@ int main() {
 
     pair<int, string> p3 = make_pair(100, "Audi");
     cout << p3.first << " " << p3.second << endl;
+
+    //nested pairs
+    pair<pair<int, int>, string> car;
+    car.second = "Audi";
+    car.first.first = 10;
+    car.first.second = 20;
+    cout << car.second << " " << car.first.first << " " << car.first.second << endl;
+
     return 0;
 }
 
