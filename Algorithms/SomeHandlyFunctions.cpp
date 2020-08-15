@@ -12,5 +12,8 @@ int main() {
     swap(a, b);
 
     cout << a << " " << b << endl;
+
+    cout << "Max:" << max(a, b) << endl;
+    cout << "Min:" << min(a, b) << endl;
 }
 
