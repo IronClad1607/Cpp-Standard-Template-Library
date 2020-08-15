@@ -15,12 +15,12 @@ int main() {
         cout << v[i] << " ";
     }
 
-//    //nextPermutation
-//    next_permutation(v.begin(), v.end());
-//
-//    for (int x:v) {
-//        cout << x << " ";
-//    }
+    //nextPermutation
+    next_permutation(v.begin(), v.end());
+
+    for (int x:v) {
+        cout << x << " ";
+    }
     return 0;
 }
 
