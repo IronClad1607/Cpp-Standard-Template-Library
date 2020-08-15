@@ -18,19 +18,45 @@ int main() {
     for (int i = 0; i < c.size(); ++i) {
         cout << c[i] << " ";
     }
-    cout<<endl;
+    cout << endl;
 
     //With Pointers
     for (auto it = c.begin(); it != c.end(); it++) {
         cout << (*it) << " ";
     }
-    cout<<endl;
+    cout << endl;
 
     //For each loop
     for (int x:d) {
         cout << x << " ";
     }
-    cout<<endl;
+    cout << endl;
+
+    //Input in a vector
+    vector<int> v;
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        int no;
+        cin >> no;
+        v.push_back(no);
+    }
+
+    for (int x:v) {
+        cout << x << " ";
+    }
+    cout << endl;
+
+    //Memory Functions
+    cout << "For vector v:" << endl;
+    cout << v.size() << endl;
+    cout << v.capacity() << endl;
+    cout << v.max_size() << endl;
+
+    cout << "For vector d:" << endl;
+    cout << d.size() << endl;
+    cout << d.capacity() << endl;
+    cout << d.max_size() << endl;
 
     return 0;
 }
